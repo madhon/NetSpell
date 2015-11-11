@@ -138,13 +138,13 @@ namespace NetSpell.Tests
 			_SpellChecker.Text = "this is an errr tst";
 
 			_SpellChecker.SpellCheck();
-			Assertion.AssertEquals("Incorrect WordOffset", 3, _SpellChecker.WordIndex);
-			Assertion.AssertEquals("Incorrect CurrentWord", "errr", _SpellChecker.CurrentWord);
+			Assert.AreEqual("Incorrect WordOffset", 3, _SpellChecker.WordIndex.ToString());
+			Assert.AreEqual("Incorrect CurrentWord", "errr", _SpellChecker.CurrentWord);
 			_SpellChecker.IgnoreWord();
 
 			_SpellChecker.SpellCheck();
-			Assertion.AssertEquals("Incorrect WordOffset", 4, _SpellChecker.WordIndex);
-			Assertion.AssertEquals("Incorrect CurrentWord", "tst", _SpellChecker.CurrentWord);
+			Assert.AreEqual("Incorrect WordOffset", 4, _SpellChecker.WordIndex.ToString());
+			Assert.AreEqual("Incorrect CurrentWord", "tst", _SpellChecker.CurrentWord);
 			
 		}
 
@@ -159,13 +159,13 @@ namespace NetSpell.Tests
 			_SpellChecker.Text = "this is a tst of a tst errr";
 
 			_SpellChecker.SpellCheck();
-			Assertion.AssertEquals("Incorrect WordOffset", 3, _SpellChecker.WordIndex);
-			Assertion.AssertEquals("Incorrect CurrentWord", "tst", _SpellChecker.CurrentWord);
+			Assert.AreEqual("Incorrect WordOffset", 3, _SpellChecker.WordIndex.ToString());
+			Assert.AreEqual("Incorrect CurrentWord", "tst", _SpellChecker.CurrentWord);
 			_SpellChecker.IgnoreAllWord();
 
 			_SpellChecker.SpellCheck();
-			Assertion.AssertEquals("Incorrect WordOffset", 7, _SpellChecker.WordIndex);
-			Assertion.AssertEquals("Incorrect CurrentWord", "errr", _SpellChecker.CurrentWord);
+			Assert.AreEqual("Incorrect WordOffset", 7, _SpellChecker.WordIndex.ToString());
+			Assert.AreEqual("Incorrect CurrentWord", "errr", _SpellChecker.CurrentWord);
 			
 		}
 
@@ -253,15 +253,15 @@ namespace NetSpell.Tests
 			_SpellChecker.ReplaceList.Clear();
 
 			_SpellChecker.SpellCheck();
-			Assertion.AssertEquals("Incorrect WordOffset", 3, _SpellChecker.WordIndex);
-			Assertion.AssertEquals("Incorrect CurrentWord", "tst", _SpellChecker.CurrentWord);
+			Assert.AreEqual("Incorrect WordOffset", 3, _SpellChecker.WordIndex.ToString());
+			Assert.AreEqual("Incorrect CurrentWord", "tst", _SpellChecker.CurrentWord);
 			_SpellChecker.ReplaceAllWord("test");
-			Assertion.AssertEquals("Incorrect Text", "this is a test of a tst errr", _SpellChecker.Text);
+			Assert.AreEqual("Incorrect Text", "this is a test of a tst errr", _SpellChecker.Text);
 			
 			_SpellChecker.SpellCheck();
-			Assertion.AssertEquals("Incorrect WordOffset", 7, _SpellChecker.WordIndex);
-			Assertion.AssertEquals("Incorrect CurrentWord", "errr", _SpellChecker.CurrentWord);
-			Assertion.AssertEquals("Incorrect Text", "this is a test of a test errr", _SpellChecker.Text);
+			Assert.AreEqual("Incorrect WordOffset", 7, _SpellChecker.WordIndex.ToString());
+			Assert.AreEqual("Incorrect CurrentWord", "errr", _SpellChecker.CurrentWord);
+			Assert.AreEqual("Incorrect Text", "this is a test of a test errr", _SpellChecker.Text);
 			
 			
 		}
@@ -277,8 +277,8 @@ namespace NetSpell.Tests
 			_SpellChecker.Text = "this is an errr tst";
 
 			_SpellChecker.SpellCheck();
-			Assertion.AssertEquals("Incorrect WordOffset", 3, _SpellChecker.WordIndex);
-			Assertion.AssertEquals("Incorrect CurrentWord", "errr", _SpellChecker.CurrentWord);
+			Assert.AreEqual("Incorrect WordOffset", 3, _SpellChecker.WordIndex.ToString());
+			Assert.AreEqual("Incorrect CurrentWord", "errr", _SpellChecker.CurrentWord);
 
 		}
 
@@ -294,8 +294,8 @@ namespace NetSpell.Tests
 			_SpellChecker.Text = "<a href=\"#\">this <span id=\"txt\">is</span> an errr tst</a>";
 
 			_SpellChecker.SpellCheck();
-			Assertion.AssertEquals("Incorrect WordOffset", 9, _SpellChecker.WordIndex);
-			Assertion.AssertEquals("Incorrect CurrentWord", "errr", _SpellChecker.CurrentWord);
+			Assert.AreEqual("Incorrect WordOffset", 9, _SpellChecker.WordIndex.ToString());
+			Assert.AreEqual("Incorrect CurrentWord", "errr", _SpellChecker.CurrentWord);
 
 		}
 
@@ -310,12 +310,12 @@ namespace NetSpell.Tests
 
 			_SpellChecker.Text = "this is tst";
 			_SpellChecker.SpellCheck();
-			Assertion.AssertEquals("Incorrect WordOffset", 2, _SpellChecker.WordIndex);
-			Assertion.AssertEquals("Incorrect CurrentWord", "tst", _SpellChecker.CurrentWord);
+			Assert.AreEqual("Incorrect WordOffset", 2, _SpellChecker.WordIndex.ToString());
+			Assert.AreEqual("Incorrect CurrentWord", "tst", _SpellChecker.CurrentWord);
 
 			_SpellChecker.Suggest();
-			Assertion.AssertEquals("Incorrect Suggestion Count", 25, _SpellChecker.Suggestions.Count);
-			Assertion.AssertEquals("Could not find 'test' in suggestions", true, _SpellChecker.Suggestions.Contains("test"));
+			Assert.AreEqual("Incorrect Suggestion Count", 25, _SpellChecker.Suggestions.Count.ToString());
+			Assert.AreEqual("Could not find 'test' in suggestions", true, _SpellChecker.Suggestions.Contains("test").ToString());
 			
 		}
 
@@ -340,9 +340,9 @@ namespace NetSpell.Tests
 		{
 			Spelling _SpellChecker = NewSpellChecker();
 
-			Assertion.AssertEquals("Incorrect EditDistance", 1, _SpellChecker.EditDistance("test", "tst"));
-			Assertion.AssertEquals("Incorrect EditDistance", 2, _SpellChecker.EditDistance("test", "tes"));
-			Assertion.AssertEquals("Incorrect EditDistance", 0, _SpellChecker.EditDistance("test", "test"));
+			Assert.AreEqual("Incorrect EditDistance", 1, _SpellChecker.EditDistance("test", "tst").ToString());
+			Assert.AreEqual("Incorrect EditDistance", 2, _SpellChecker.EditDistance("test", "tes").ToString());
+			Assert.AreEqual("Incorrect EditDistance", 0, _SpellChecker.EditDistance("test", "test").ToString());
 			
 		}
 

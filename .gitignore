@@ -138,6 +138,7 @@ publish/
 
 # NuGet Packages Directory
 packages/*
+NetSpell/src/packages/*
 *.nupkg
 
 ## TODO: If the tool you use requires repositories.config

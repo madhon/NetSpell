@@ -61,7 +61,7 @@ namespace NetSpell.Tests
 
 					if (!_WordDictionary.Contains(tempLine)) 
 					{
-						Assertion.Fail(string.Format("Did not find word: {0}" , tempLine));
+						Assert.Fail(string.Format("Did not find word: {0}" , tempLine));
 					}
 				}
 			}
@@ -90,7 +90,7 @@ namespace NetSpell.Tests
 
 					if (_WordDictionary.Contains(tempLine)) 
 					{
-						Assertion.Fail(string.Format("Word found that should not be: {0}" , tempLine));
+						Assert.Fail(string.Format("Word found that should not be: {0}" , tempLine));
 					}
 				}
 
@@ -107,17 +107,17 @@ namespace NetSpell.Tests
 		{
 			string code = _WordDictionary.PhoneticCode("test");
 
-			Assertion.AssertEquals("Incorrect Phonitic Code", "*BRFTT", _WordDictionary.PhoneticCode("abbreviated"));
-			Assertion.AssertEquals("Incorrect Phonitic Code", "*BLT", _WordDictionary.PhoneticCode("ability"));
-			Assertion.AssertEquals("Incorrect Phonitic Code", "NMNT", _WordDictionary.PhoneticCode("nominate"));
-			Assertion.AssertEquals("Incorrect Phonitic Code", "NN", _WordDictionary.PhoneticCode("noun"));
-			Assertion.AssertEquals("Incorrect Phonitic Code", "*BKKT", _WordDictionary.PhoneticCode("object"));
-			Assertion.AssertEquals("Incorrect Phonitic Code", "*TKR", _WordDictionary.PhoneticCode("outgrow"));
-			Assertion.AssertEquals("Incorrect Phonitic Code", "*TLNTX", _WordDictionary.PhoneticCode("outlandish"));
-			Assertion.AssertEquals("Incorrect Phonitic Code", "PBLX", _WordDictionary.PhoneticCode("publish"));
-			Assertion.AssertEquals("Incorrect Phonitic Code", "STL", _WordDictionary.PhoneticCode("sightly"));
-			Assertion.AssertEquals("Incorrect Phonitic Code", "SPL", _WordDictionary.PhoneticCode("supple"));
-			Assertion.AssertEquals("Incorrect Phonitic Code", "TRTNS", _WordDictionary.PhoneticCode("triteness"));
+		    Assert.AreEqual("Incorrect Phonitic Code", "*BRFTT", _WordDictionary.PhoneticCode("abbreviated"));
+			Assert.AreEqual("Incorrect Phonitic Code", "*BLT", _WordDictionary.PhoneticCode("ability"));
+			Assert.AreEqual("Incorrect Phonitic Code", "NMNT", _WordDictionary.PhoneticCode("nominate"));
+			Assert.AreEqual("Incorrect Phonitic Code", "NN", _WordDictionary.PhoneticCode("noun"));
+			Assert.AreEqual("Incorrect Phonitic Code", "*BKKT", _WordDictionary.PhoneticCode("object"));
+			Assert.AreEqual("Incorrect Phonitic Code", "*TKR", _WordDictionary.PhoneticCode("outgrow"));
+			Assert.AreEqual("Incorrect Phonitic Code", "*TLNTX", _WordDictionary.PhoneticCode("outlandish"));
+			Assert.AreEqual("Incorrect Phonitic Code", "PBLX", _WordDictionary.PhoneticCode("publish"));
+			Assert.AreEqual("Incorrect Phonitic Code", "STL", _WordDictionary.PhoneticCode("sightly"));
+			Assert.AreEqual("Incorrect Phonitic Code", "SPL", _WordDictionary.PhoneticCode("supple"));
+			Assert.AreEqual("Incorrect Phonitic Code", "TRTNS", _WordDictionary.PhoneticCode("triteness"));
 
 		}
 
@@ -128,37 +128,37 @@ namespace NetSpell.Tests
 			ArrayList words = new ArrayList();
 
 			words = _WordDictionary.ExpandWord(new Word("abbreviated", "UA"));
-			Assertion.AssertEquals("Incorrect Number of expanded words", 3, words.Count);
+			Assert.AreEqual("Incorrect Number of expanded words", 3, words.Count.ToString());
 
 			words = _WordDictionary.ExpandWord(new Word("ability", "IMES"));
-			Assertion.AssertEquals("Incorrect Number of expanded words", 9, words.Count);
+			Assert.AreEqual("Incorrect Number of expanded words", 9, words.Count.ToString());
 
 			words = _WordDictionary.ExpandWord(new Word("nominate", "CDSAXNG"));
-			Assertion.AssertEquals("Incorrect Number of expanded words", 18, words.Count);
+			Assert.AreEqual("Incorrect Number of expanded words", 18, words.Count.ToString());
 
 			words = _WordDictionary.ExpandWord(new Word("noun", "SMK"));
-			Assertion.AssertEquals("Incorrect Number of expanded words", 6, words.Count);
+			Assert.AreEqual("Incorrect Number of expanded words", 6, words.Count.ToString());
 
 			words = _WordDictionary.ExpandWord(new Word("object", "SGVMD"));
-			Assertion.AssertEquals("Incorrect Number of expanded words", 6, words.Count);
+			Assert.AreEqual("Incorrect Number of expanded words", 6, words.Count.ToString());
 
 			words = _WordDictionary.ExpandWord(new Word("outgrow", "GSH"));
-			Assertion.AssertEquals("Incorrect Number of expanded words", 4, words.Count);
+			Assert.AreEqual("Incorrect Number of expanded words", 4, words.Count.ToString());
 
 			words = _WordDictionary.ExpandWord(new Word("outlandish", "PY"));
-			Assertion.AssertEquals("Incorrect Number of expanded words", 3, words.Count);
+			Assert.AreEqual("Incorrect Number of expanded words", 3, words.Count.ToString());
 
 			words = _WordDictionary.ExpandWord(new Word("publish", "JDRSBZG"));
-			Assertion.AssertEquals("Incorrect Number of expanded words", 8, words.Count);
+			Assert.AreEqual("Incorrect Number of expanded words", 8, words.Count.ToString());
 
 			words = _WordDictionary.ExpandWord(new Word("sightly", "TURP"));
-			Assertion.AssertEquals("Incorrect Number of expanded words", 7, words.Count);
+			Assert.AreEqual("Incorrect Number of expanded words", 7, words.Count.ToString());
 
 			words = _WordDictionary.ExpandWord(new Word("supple", "SPLY"));
-			Assertion.AssertEquals("Incorrect Number of expanded words", 5, words.Count);
+			Assert.AreEqual("Incorrect Number of expanded words", 5, words.Count.ToString());
 
 			words = _WordDictionary.ExpandWord(new Word("triteness", "SF"));
-			Assertion.AssertEquals("Incorrect Number of expanded words", 4, words.Count);
+			Assert.AreEqual("Incorrect Number of expanded words", 4, words.Count.ToString());
 
 		}
 
